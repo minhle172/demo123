@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login 7</title>
+    <style>
+        .main{
+            width: 80%;
+            margin: auto;
+        }
+        header{
+            text-align: center;
+        }
+        a{
+            display: inline-block;
+            text-decoration: none;
+            font-size: 20px;
+            margin: 0 20px;
+        }
+        nav{
+            text-align: center;
+            border-top: rgb(83, 20, 20) solid 4px;
+            border-bottom: rgb(83, 20, 20) solid 4px;
+            line-height: 70px;
+        }
+        .dangnhap{
+            color: white;
+        }
+        input[type="submit"]{
+            background-color: rgb(255, 61, 61);
+            
+        }
+        input[type="reset"]{
+            background-color: rgb(50, 101, 253);
+       
+        }
+        input[type="submit"],
+        input[type="reset"]{
+            color: white;
+            width: 20%;
+            height: 30px;
+            margin: 20px 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .bangTT{
+            width: 40%;
+            margin: 100px auto;
+            border: rgb(51, 51, 51) solid thin;
+            border-radius: 10px;
+            box-shadow: 3px 3px 3px rgb(77, 77, 77);
+        }
+        label{
+            display: inline-block;
+            width: 20%;
+            margin-left: 20px;
+            color: brown;
+            font-weight: bold;
+        }
+        h2{
+            text-indent: 30px;
+            color: rgb(33, 143, 0);
+            font-size: 30px;
+            text-shadow: 3px 3px 1px rgb(138, 252, 138);
+            border-bottom: black solid 2px;
+            width: 90%;
+            margin: 30px auto;
+            line-height: 80px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <header>
+            <img src="as7_logo.png" alt="" style="display: inline-block;">
+        </header>
+        <nav>
+            <a href="home7.html">HOME</a>
+            <a href="#">ACADEMICS</a>
+            <a href="#">RESEARCH</a>
+            <a href="#" style="color: rgb(83, 20, 20); font-size: 40px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-style:italic;">About Us</a>
+            <a href="#">E-LIBRARY</a>
+            <a href="#">SIGN UP</a>
+            <a href="#">SIGN IN</a>
+        </nav>
+        <div class="bangTT">
+            <form action="" id="formDK" name="formDK" method="get">
+                <h2>Student Information</h2>
+                <label for="">Name</label>
+                <input type="text" name="txtName" id="txtName" required value="Le Minh">
+                <br><br>
+                <label for="">Gender</label>
+                <input type="radio" name="rdGen" id="rdMale" checked>Male
+                <input type="radio" name="rdGen" id="rdFemale">Female
+                <br><br>
+                <label for="">Address</label>
+                <input type="text" name="txtAdd" id="txtAdd" value="123 abc">
+                <br><br>
+                <label for="">Email</label>
+                <input type="email" name="txtEmail" required id="txtEmail" value="lem172@gmail.com" pattern="^[a-z0-9]{3,}@[a-z0-9]{3,8}\.[a-zA-Z0-9]{3,5}$">
+                <br><br>
+                <label for="">Phone</label>
+                <input type="text" name="txtPhone" required value="12345" id="txtPhone" pattern="^[0-9]{3,12}$">
+                <br><br>
+                <label for="">Qualification</label>
+                <select name="seQua" id="seQua" required>
+                    <option value="" selected disabled>---Select---</option>
+                    <option value="Bachelor Degree">Bachelor Degree</option>
+                    <option value="Master">Master</option>
+                    <option value="Phd">Phd</option>
+                    <option value="None">None</option>
+                </select>
+                <br><br>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+                <span></span>
+                
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("formDK").onsubmit = function(){
+        var ten = document.getElementById("txtName").value;
+        var gt = document.getElementById("rdMale").checked === true?"Male":"Female";
+        var dc = document.getElementById("txtAdd").value;
+        var email = document.getElementById("txtEmail").value;
+        var dt = document.getElementById("txtPhone").value;
+        var bc = document.getElementById("seQua").value;
+
+        var a = [];
+        a.push("<h1>Student Information Successful Registration</h1>");
+        a.push("<hr>");
+        a.push("<span style='color:green;'>Name    </span>"+ten);
+        a.push("<span style='color:green;'>Gender    </span>"+gt);
+        a.push("Address: "+dc);
+        a.push("Email: "+email);
+        a.push("Phone: "+dt);
+        a.push("Qualification: "+bc);
+        alert(a.join("\n"));
+        var newTab = window.open('_blank');
+        newTab.document.write(a.join("<br>"));
+
+
+    }
+</script>
+</html>
